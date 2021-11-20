@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/aps_bum_employee_srv/$metadata">
+        <edmx:Include Namespace="APS_BUM_EMPLOYEE_SRV" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="aps_bum_employee_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_BPUsrAssignmentVHType">
+                <Annotation Term="UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="UserID"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="UserDescription"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/EmailAddress">
+                <Annotation Term="Communication.IsEmailAddress"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/FormOfAddress">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/ValidityStartDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/ValidityEndDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/IsMarkedForArchiving">
+                <Annotation Term="Common.FilterDefaultValue" Bool="false"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/UserID">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/UserName">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/UserDescription">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/CorrespondenceLanguage">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/DestinationLocationCountry">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PhoneNumber">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PhoneNumberExtension">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MblPhoneDestinationLocCountry">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MobilePhoneNumber">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Building">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/RoomNumber">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Department">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/FunctionalTitleName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AdditionalLastName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastNamePrefix">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastNameSecondPrefix">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/BirthName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/NickName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MiddleName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AcademicTitle">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AcademicSecondTitle">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/NameSupplement">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Initials">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PersonFullName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/HasDraftEntity">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/ActiveUUID">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/DraftEntityCreationDateTime">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/DraftEntityLastChangeDateTime">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/HasActiveEntity">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/IsActiveEntity">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/BusinessPartnerUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PersonNumber">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AuthorizationGroup">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/CreationDateTime">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/CreatedByUser">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastChangeDateTime">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastChangedByUser">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/IsBusinessPurposeCompleted">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/BPAddressChangeDocObject">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Activation_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Edit_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Mark_for_archiving_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Preparation_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Undo_mark_for_archiving_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Validation_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AcademicSecondTitle_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AcademicTitle_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AdditionalLastName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/BirthName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Building_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/BusinessPartner_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/CorrespondenceLanguage_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Department_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/DestinationLocationCountry_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/EmailAddress_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/EmployeeExternalID_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/FirstName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/FormOfAddress_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/FunctionalTitleName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Initials_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/IsMarkedForArchiving_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastNamePrefix_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastNameSecondPrefix_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MblPhoneDestinationLocCountry_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MiddleName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MobilePhoneNumber_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/NameSupplement_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/NickName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PersonFullName_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PhoneNumber_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/PhoneNumberExtension_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/RoomNumber_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/UserID_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/ValidityEndDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/ValidityStartDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/BusinessPartner">
+                <Annotation Term="Common.SemanticObject" String="BusinessUser"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Общая информация"/>
+                            <PropertyValue Property="ID" String="GeneralInfo"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Основные данные"/>
+                                        <PropertyValue Property="ID" String="GeneralInfoFG1"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BasicData"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Период действия"/>
+                                        <PropertyValue Property="ID" String="GeneralInfoFG2"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ValidityPeriod"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Бизнес-пользователь"/>
+                                        <PropertyValue Property="ID" String="GeneralInfoFG3"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BusinessUser"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Контактная информация"/>
+                            <PropertyValue Property="ID" String="ContactData"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Контакт"/>
+                                        <PropertyValue Property="ID" String="ContactDataFG1"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Contact"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Телефон"/>
+                                        <PropertyValue Property="ID" String="ContactDataFG2"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Telephone"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Мобильный телефон"/>
+                                        <PropertyValue Property="ID" String="ContactDataFG3"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#MobilePhone"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Дополнительная информация"/>
+                            <PropertyValue Property="ID" String="PersonalDetails"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Данные имени"/>
+                                        <PropertyValue Property="ID" String="PersonalDetailsFG1"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#NameData"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Данные рабочего места"/>
+                                        <PropertyValue Property="ID" String="PersonalDetailsFG2"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#WorkPlaceData"/>
+                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BasicData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="EmployeeExternalID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BusinessPartner"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FormOfAddress"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FirstName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BusinessUser">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UserID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UserDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Contact">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="EmailAddress"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CorrespondenceLanguage"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="MobilePhone">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MblPhoneDestinationLocCountry"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MobilePhoneNumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="NameData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="AdditionalLastName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastNamePrefix"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastNameSecondPrefix"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BirthName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NickName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MiddleName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="AcademicTitle"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="AcademicSecondTitle"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NameSupplement"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Initials"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PersonFullName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Telephone">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="DestinationLocationCountry"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PhoneNumber"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PhoneNumberExtension"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ValidityPeriod">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ValidityStartDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ValidityEndDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="IsMarkedForArchiving"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="WorkPlaceData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Building"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="RoomNumber"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Department"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FunctionalTitleName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Сотрудник"/>
+                        <PropertyValue Property="TypeNamePlural" String="Сотрудники"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="EmployeeExternalID"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="PersonFullName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Выбрать для архивации"/>
+                            <PropertyValue Property="Action" String="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/A9AC8799B24662A3DCCB47Mark_for_archiving"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Отменить выбор для архивации"/>
+                            <PropertyValue Property="Action" String="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/A9AC8799B24662A3DUndo_mark_for_archiving"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EmployeeExternalID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FirstName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LastName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EmailAddress"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UserID"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>EmployeeExternalID</PropertyPath>
+                        <PropertyPath>FirstName</PropertyPath>
+                        <PropertyPath>LastName</PropertyPath>
+                        <PropertyPath>IsMarkedForArchiving</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Communication.Contact">
+                    <Record>
+                        <PropertyValue Property="fn" Path="PersonFullName"/>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/work"/>
+                                    <PropertyValue Property="address" Path="EmailAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_CountryVHType/Description">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftEntityType">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftAccessType">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/ProcessingStartDateTime">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftIsKeptByUser">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/EnqueueStartDateTime">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftIsCreatedByMe">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftIsLastChangedByMe">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/DraftIsProcessedByMe">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/CreatedByUserDescription">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/LastChangedByUserDescription">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType/InProcessByUserDescription">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

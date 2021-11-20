@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap17.bdo.ru/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="APS_BUM_EMPLOYEE_SRV" xml:lang="ru" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="EmployeeUpload" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="content"/>
+                </Key>
+                <Property Name="content" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="response" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="C_BPUsrAcademicTitleVHType" sap:label="Бизнес-пользователь - средство поиска для ученой степени" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AcademicTitle"/>
+                </Key>
+                <Property Name="AcademicTitle" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="AcademicTitleName" sap:label="Ученая степень 1" sap:quickinfo="Ученая степень: ключ"/>
+                <Property Name="AcademicTitleName" Type="Edm.String" MaxLength="20" sap:label="Ученая степень" sap:quickinfo="Ученая степень: письменная форма"/>
+            </EntityType>
+            <EntityType Name="C_BPUsrAssignmentVHType" sap:label="Бизнес-пользователь - присв. польз. для справки по вводу" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UserID"/>
+                </Key>
+                <Property Name="UserID" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Ид. пользователя"/>
+                <Property Name="Firstname" Type="Edm.String" MaxLength="40" sap:label="Имя"/>
+                <Property Name="Lastname" Type="Edm.String" MaxLength="40" sap:label="Фамилия"/>
+                <Property Name="Building" Type="Edm.String" MaxLength="10" sap:label="Код здания" sap:quickinfo="Здание (номер или код)"/>
+                <Property Name="RoomNumber" Type="Edm.String" MaxLength="10" sap:label="№ помещения" sap:quickinfo="Номер квартиры или помещения"/>
+                <Property Name="Department" Type="Edm.String" MaxLength="40" sap:label="Отдел"/>
+                <Property Name="DefaultEmailAddress" Type="Edm.String" MaxLength="241" sap:label="Адрес эл. почты" sap:quickinfo="Адрес электронной почты"/>
+                <Property Name="UserDescription" Type="Edm.String" MaxLength="80" sap:label="Описание" sap:quickinfo="Описание пользователя"/>
+            </EntityType>
+            <EntityType Name="C_BPUSRFormOfAddressVHType" sap:label="Ракурс справки по вводу для обращения" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FormOfAddress"/>
+                </Key>
+                <Property Name="FormOfAddress" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="FormOfAddressName" sap:label="Обращение" sap:quickinfo="Ключ обращения"/>
+                <Property Name="FormOfAddressName" Type="Edm.String" MaxLength="30" sap:label="Обращение" sap:quickinfo="Текст обращения"/>
+            </EntityType>
+            <EntityType Name="C_EmployeeBusinessUserTPType" sap:label="Бизнес-польз. сотрудника для транз. обр. - ракурс потребл." sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerUUID"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="Activation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Edit_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mark_for_archiving_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Undo_mark_for_archiving_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcademicSecondTitle_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcademicTitle_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AdditionalLastName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BirthName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Building_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BusinessPartner_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CorrespondenceLanguage_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Department_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DestinationLocationCountry_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmailAddress_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeExternalID_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FirstName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FormOfAddress_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FunctionalTitleName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Initials_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsMarkedForArchiving_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastNamePrefix_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastNameSecondPrefix_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MblPhoneDestinationLocCountry_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MiddleName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MobilePhoneNumber_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NameSupplement_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NickName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PersonFullName_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PhoneNumber_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PhoneNumberExtension_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RoomNumber_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserID_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidityEndDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidityStartDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Delete_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Update_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BusinessPartnerUUID" Type="Edm.Guid" Nullable="false" sap:label="GUID ДП" sap:quickinfo="GUID делового партнера" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:field-control="BusinessPartner_fc" sap:label="Деловой партнер" sap:quickinfo="Номер делового партнера"/>
+                <Property Name="PersonNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Номер лица" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EmployeeExternalID" Type="Edm.String" MaxLength="60" sap:display-format="UpperCase" sap:field-control="EmployeeExternalID_fc" sap:label="Ид. сотрудника"/>
+                <Property Name="FormOfAddress" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:field-control="FormOfAddress_fc" sap:label="Обращение" sap:quickinfo="Ключ обращения" sap:value-list="fixed-values"/>
+                <Property Name="FirstName" Type="Edm.String" MaxLength="40" sap:field-control="FirstName_fc" sap:label="Имя" sap:quickinfo="Имя делового партнера (лицо)"/>
+                <Property Name="LastName" Type="Edm.String" MaxLength="40" sap:field-control="LastName_fc" sap:label="Фамилия" sap:quickinfo="Фамилия делового партнера (лицо)"/>
+                <Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ValidityStartDate_fc" sap:label="Действительно с" sap:quickinfo="Начало срока действия роли ДП"/>
+                <Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ValidityEndDate_fc" sap:label="Действительно по" sap:quickinfo="Окончание срока действия роли ДП"/>
+                <Property Name="IsMarkedForArchiving" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="IsMarkedForArchiving_fc" sap:filter-restriction="single-value" sap:label="Выбрано для архивации"/>
+                <Property Name="UserID" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:field-control="UserID_fc" sap:label="Ид. пользователя" sap:value-list="standard"/>
+                <Property Name="UserName" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Имя пользователя" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="UserDescription" Type="Edm.String" MaxLength="80" sap:label="Описание пользователя" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="241" sap:field-control="EmailAddress_fc" sap:label="Адрес эл. почты" sap:quickinfo="Адрес электронной почты" sap:semantics="email"/>
+                <Property Name="CorrespondenceLanguage" Type="Edm.String" MaxLength="2" sap:field-control="CorrespondenceLanguage_fc" sap:label="Язык корреспонденции" sap:value-list="standard"/>
+                <Property Name="DestinationLocationCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:field-control="DestinationLocationCountry_fc" sap:label="Код страны" sap:value-list="standard"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:field-control="PhoneNumber_fc" sap:label="Телефон"/>
+                <Property Name="PhoneNumberExtension" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:field-control="PhoneNumberExtension_fc" sap:label="Добавочный номер телефона"/>
+                <Property Name="MblPhoneDestinationLocCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:field-control="MblPhoneDestinationLocCountry_fc" sap:label="Код страны" sap:value-list="standard"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:field-control="MobilePhoneNumber_fc" sap:label="Мобильный телефон"/>
+                <Property Name="Building" Type="Edm.String" MaxLength="10" sap:field-control="Building_fc" sap:label="Код здания" sap:quickinfo="Здание (номер или код)"/>
+                <Property Name="RoomNumber" Type="Edm.String" MaxLength="10" sap:field-control="RoomNumber_fc" sap:label="№ помещения" sap:quickinfo="Номер квартиры или помещения"/>
+                <Property Name="Department" Type="Edm.String" MaxLength="40" sap:field-control="Department_fc" sap:label="Отдел"/>
+                <Property Name="FunctionalTitleName" Type="Edm.String" MaxLength="40" sap:field-control="FunctionalTitleName_fc" sap:label="Функция"/>
+                <Property Name="AdditionalLastName" Type="Edm.String" MaxLength="40" sap:field-control="AdditionalLastName_fc" sap:label="Вторая фамилия" sap:quickinfo="Вторая фамилия лица"/>
+                <Property Name="LastNamePrefix" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:field-control="LastNamePrefix_fc" sap:label="Префикс 1" sap:quickinfo="Префикс имени (ключ)" sap:value-list="fixed-values"/>
+                <Property Name="LastNameSecondPrefix" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:field-control="LastNameSecondPrefix_fc" sap:label="Префикс 2" sap:quickinfo="Второй префикс к имени (ключ)" sap:value-list="fixed-values"/>
+                <Property Name="BirthName" Type="Edm.String" MaxLength="40" sap:field-control="BirthName_fc" sap:label="Фамилия при рождении" sap:quickinfo="Фамилия делового партнера, полученная при рождении"/>
+                <Property Name="NickName" Type="Edm.String" MaxLength="40" sap:field-control="NickName_fc" sap:label="Основное имя" sap:quickinfo="Основное имя делового партнера (лицо)"/>
+                <Property Name="MiddleName" Type="Edm.String" MaxLength="40" sap:field-control="MiddleName_fc" sap:label="Отчество" sap:quickinfo="Отчество, среднее имя или второе имя лица"/>
+                <Property Name="AcademicTitle" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:field-control="AcademicTitle_fc" sap:label="Ученая степень" sap:value-list="fixed-values"/>
+                <Property Name="AcademicSecondTitle" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:field-control="AcademicSecondTitle_fc" sap:label="Вторая ученая степень" sap:value-list="fixed-values"/>
+                <Property Name="NameSupplement" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:field-control="NameSupplement_fc" sap:label="Дополнение к имени" sap:quickinfo="Дополнение к имени, напр., дворянский титул (ключ)" sap:value-list="fixed-values"/>
+                <Property Name="Initials" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:field-control="Initials_fc" sap:label="Инициалы"/>
+                <Property Name="PersonFullName" Type="Edm.String" MaxLength="80" sap:field-control="PersonFullName_fc" sap:label="Полное имя" sap:quickinfo="Полное имя лица"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Группа полномочий" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.String" MaxLength="14" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Создал" sap:quickinfo="Пользователь, создавший объект" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangeDateTime" Type="Edm.String" MaxLength="14" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Автор изменения" sap:quickinfo="Пользователь, последним изменивший объект" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsBusinessPurposeCompleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Инд. выполнения цели" sap:quickinfo="Индикатор выполнения целевого назначения" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BPAddressChangeDocObject" Type="Edm.String" MaxLength="24" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Имеет черновик" sap:heading="" sap:quickinfo="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ActiveUUID" Type="Edm.Guid" sap:label="Key" sap:heading="" sap:quickinfo="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Дата создания черновика" sap:heading="" sap:quickinfo="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Дата последнего изменения черновика" sap:heading="" sap:quickinfo="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Имеет акт. документ" sap:heading="" sap:quickinfo="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Активно" sap:heading="" sap:quickinfo="" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Relationship="APS_BUM_EMPLOYEE_SRV.assoc_B89F1B0C431CF3DAA0556A99AA3AF491" FromRole="FromRole_assoc_B89F1B0C431CF3DAA0556A99AA3AF491" ToRole="ToRole_assoc_B89F1B0C431CF3DAA0556A99AA3AF491"/>
+                <NavigationProperty Name="SiblingEntity" Relationship="APS_BUM_EMPLOYEE_SRV.assoc_EE1CC54C6F252A54EE2FB1B5B2166C86" FromRole="FromRole_assoc_EE1CC54C6F252A54EE2FB1B5B2166C86" ToRole="ToRole_assoc_EE1CC54C6F252A54EE2FB1B5B2166C86"/>
+            </EntityType>
+            <EntityType Name="I_BusPartPrefixNameType" sap:label="Основной ракурс для отображения префикса имени дел. партнера" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LastNamePrefix"/>
+                </Key>
+                <Property Name="LastNamePrefix" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="LastNamePrefixName" sap:label="Префикс 1" sap:quickinfo="Префикс имени (ключ)"/>
+                <Property Name="LastNamePrefixName" Type="Edm.String" MaxLength="20" sap:label="Префикс имени" sap:quickinfo="Префикс к имени"/>
+            </EntityType>
+            <EntityType Name="I_BusPartSupplementNameType" sap:label="Ракурс содержит дополнение к деловому партнеру" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerSupplementName"/>
+                </Key>
+                <Property Name="BusinessPartnerSupplementName" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="BusinessPartnerSupplementName_Text" sap:label="Дополнение к имени" sap:quickinfo="Дополнение к имени, напр., дворянский титул (ключ)"/>
+                <Property Name="BusinessPartnerSupplementName_Text" Type="Edm.String" MaxLength="40" sap:label="ОписИменнСуффикса" sap:quickinfo="Описание именного суффикса/дварянского титула" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_CountryVHType" sap:label="Справка по вводу стран" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Country_Text" sap:label="Код страны/региона"/>
+                <Property Name="Country_Text" Type="Edm.String" MaxLength="50" sap:label="Страна" sap:quickinfo="Название страны" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="50" sap:label="Страна" sap:quickinfo="Название страны"/>
+                <Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO-код (3-зн.)" sap:quickinfo="ISO-код страны (3-значный)"/>
+                <Property Name="CountryThreeDigitISOCode" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="ISO-код, 3 зн." sap:quickinfo="ISO-код страны (цифровой) 3-х значн."/>
+            </EntityType>
+            <EntityType Name="I_DraftAdministrativeDataType" sap:label="Административные данные для проекта" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                    <PropertyRef Name="DraftEntityType"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Черновик (тех. ид.)" sap:quickinfo="Черновик (технический ид.)"/>
+                <Property Name="DraftEntityType" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Ид. черн. сущности" sap:quickinfo="Ид. черновой сущности"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Дата создания черновика"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="CreatedByUserDescription" sap:label="Автор черновика"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Дата последнего изменения черновика"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="LastChangedByUserDescription" sap:label="Автор последнего изменения черновика"/>
+                <Property Name="DraftAccessType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Тип доступа к черн." sap:quickinfo="Тип доступа к черновой версии"/>
+                <Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Черновик в обработке с"/>
+                <Property Name="InProcessByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="InProcessByUserDescription" sap:label="Черновик обрабатывает"/>
+                <Property Name="DraftIsKeptByUser" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Черновик хранится у пользователя"/>
+                <Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Черновик блокирован с"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Созданная мной черновая версия"/>
+                <Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Последний черновик, измененный мною"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Я обрабатываю черновик"/>
+                <Property Name="CreatedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Автор черновика (описание)"/>
+                <Property Name="LastChangedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Автор посл. изм. черновика (описание)" sap:quickinfo="Автор последнего изменения черновика (описание)"/>
+                <Property Name="InProcessByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Черновик обрабатывает (описание)"/>
+            </EntityType>
+            <EntityType Name="I_LanguageType" sap:label="Язык" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Language_Text" sap:label="Код языка"/>
+                <Property Name="Language_Text" Type="Edm.String" MaxLength="16" sap:label="Название" sap:quickinfo="Название языка" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LanguageISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Код языка" sap:quickinfo="Двузначный код языка SAP"/>
+            </EntityType>
+            <ComplexType Name="Fs4bpuTAppControl">
+                <Property Name="IsCloud" Type="Edm.Boolean" sap:label="TRUE"/>
+                <Property Name="IsHcm" Type="Edm.Boolean" sap:label="TRUE"/>
+                <Property Name="IsDma" Type="Edm.Boolean" sap:label="TRUE"/>
+                <Property Name="IsEmailHealthCheck" Type="Edm.Boolean" sap:label="TRUE"/>
+                <Property Name="IsEveryEewaFieldReadOnly" Type="Edm.Boolean" sap:label="TRUE"/>
+                <Property Name="IsHcmMaintExtResource" Type="Edm.Boolean" sap:label="TRUE"/>
+            </ComplexType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="IsInvalid" Type="Edm.Boolean" sap:label="TRUE"/>
+            </ComplexType>
+            <ComplexType Name="Fs4bpuTDownloadCsvTemplate">
+                <Property Name="HeaderArray" Type="Edm.String" MaxLength="30000" sap:label="ДлинСимв"/>
+                <Property Name="RowArray" Type="Edm.String" MaxLength="30000" sap:label="ДлинСимв"/>
+            </ComplexType>
+            <ComplexType Name="ValidationFunctionResult">
+                <Property Name="IsValid" Type="Edm.Boolean" sap:label="Явл. действ."/>
+            </ComplexType>
+            <Association Name="assoc_EE1CC54C6F252A54EE2FB1B5B2166C86" sap:content-version="1">
+                <End Type="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" Multiplicity="1" Role="FromRole_assoc_EE1CC54C6F252A54EE2FB1B5B2166C86"/>
+                <End Type="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" Multiplicity="0..1" Role="ToRole_assoc_EE1CC54C6F252A54EE2FB1B5B2166C86"/>
+            </Association>
+            <Association Name="assoc_B89F1B0C431CF3DAA0556A99AA3AF491" sap:content-version="1">
+                <End Type="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" Multiplicity="1" Role="FromRole_assoc_B89F1B0C431CF3DAA0556A99AA3AF491"/>
+                <End Type="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_B89F1B0C431CF3DAA0556A99AA3AF491"/>
+            </Association>
+            <EntityContainer Name="APS_BUM_EMPLOYEE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EmployeeUploadSet" EntityType="APS_BUM_EMPLOYEE_SRV.EmployeeUpload" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="C_BPUsrAcademicTitleVH" EntityType="APS_BUM_EMPLOYEE_SRV.C_BPUsrAcademicTitleVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_BPUsrAssignmentVH" EntityType="APS_BUM_EMPLOYEE_SRV.C_BPUsrAssignmentVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_BPUSRFormOfAddressVH" EntityType="APS_BUM_EMPLOYEE_SRV.C_BPUSRFormOfAddressVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_EmployeeBusinessUserTP" EntityType="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:searchable="true" sap:content-version="1" sap:deletable-path="Delete_mc" sap:updatable-path="Update_mc"/>
+                <EntitySet Name="I_BusPartPrefixName" EntityType="APS_BUM_EMPLOYEE_SRV.I_BusPartPrefixNameType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_BusPartSupplementName" EntityType="APS_BUM_EMPLOYEE_SRV.I_BusPartSupplementNameType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_CountryVH" EntityType="APS_BUM_EMPLOYEE_SRV.I_CountryVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_DraftAdministrativeData" EntityType="APS_BUM_EMPLOYEE_SRV.I_DraftAdministrativeDataType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="I_Language" EntityType="APS_BUM_EMPLOYEE_SRV.I_LanguageType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_EE1CC54C6F252A54EE2FB1B5B2166C86" Association="APS_BUM_EMPLOYEE_SRV.assoc_EE1CC54C6F252A54EE2FB1B5B2166C86" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_EmployeeBusinessUserTP" Role="FromRole_assoc_EE1CC54C6F252A54EE2FB1B5B2166C86"/>
+                    <End EntitySet="C_EmployeeBusinessUserTP" Role="ToRole_assoc_EE1CC54C6F252A54EE2FB1B5B2166C86"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_B89F1B0C431CF3DAA0556A99AA3AF491" Association="APS_BUM_EMPLOYEE_SRV.assoc_B89F1B0C431CF3DAA0556A99AA3AF491" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_EmployeeBusinessUserTP" Role="FromRole_assoc_B89F1B0C431CF3DAA0556A99AA3AF491"/>
+                    <End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_B89F1B0C431CF3DAA0556A99AA3AF491"/>
+                </AssociationSet>
+                <FunctionImport Name="C_EmployeeBusinessUserTPActivation" ReturnType="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" EntitySet="C_EmployeeBusinessUserTP" m:HttpMethod="POST" sap:action-for="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:applicable-path="Activation_ac">
+                    <Parameter Name="BusinessPartnerUUID" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_EmployeeBusinessUserTPApp_control" ReturnType="APS_BUM_EMPLOYEE_SRV.Fs4bpuTAppControl" m:HttpMethod="POST"/>
+                <FunctionImport Name="C_EmployeeBusinessUserTPCheck_emails" ReturnType="APS_BUM_EMPLOYEE_SRV.DummyFunctionImportResult" m:HttpMethod="POST"/>
+                <FunctionImport Name="A9AC8799B24662A3DCCDownload_csv_template" ReturnType="APS_BUM_EMPLOYEE_SRV.Fs4bpuTDownloadCsvTemplate" m:HttpMethod="POST">
+                    <Parameter Name="CallerContext" Type="Edm.String" Mode="In" MaxLength="6"/>
+                </FunctionImport>
+                <FunctionImport Name="C_EmployeeBusinessUserTPEdit" ReturnType="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" EntitySet="C_EmployeeBusinessUserTP" m:HttpMethod="POST" sap:action-for="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:applicable-path="Edit_ac">
+                    <Parameter Name="BusinessPartnerUUID" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="A9AC8799B24662A3DCCB47Mark_for_archiving" ReturnType="APS_BUM_EMPLOYEE_SRV.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:applicable-path="Mark_for_archiving_ac">
+                    <Parameter Name="BusinessPartnerUUID" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_EmployeeBusinessUserTPPreparation" ReturnType="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" EntitySet="C_EmployeeBusinessUserTP" m:HttpMethod="POST" sap:action-for="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:applicable-path="Preparation_ac">
+                    <Parameter Name="BusinessPartnerUUID" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="A9AC8799B24662A3DUndo_mark_for_archiving" ReturnType="APS_BUM_EMPLOYEE_SRV.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:applicable-path="Undo_mark_for_archiving_ac">
+                    <Parameter Name="BusinessPartnerUUID" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_EmployeeBusinessUserTPValidation" ReturnType="APS_BUM_EMPLOYEE_SRV.ValidationFunctionResult" m:HttpMethod="GET" sap:action-for="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" sap:applicable-path="Validation_ac">
+                    <Parameter Name="BusinessPartnerUUID" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/C_EmployeeBusinessUserTP" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.DraftRoot">
+                    <Record>
+                        <PropertyValue Property="ActivationAction" String="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/C_EmployeeBusinessUserTPActivation"/>
+                        <PropertyValue Property="EditAction" String="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/C_EmployeeBusinessUserTPEdit"/>
+                        <PropertyValue Property="PreparationAction" String="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/C_EmployeeBusinessUserTPPreparation"/>
+                        <PropertyValue Property="ValidationFunction" String="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities/C_EmployeeBusinessUserTPValidation"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>Activation_ac</PropertyPath>
+                                <PropertyPath>Edit_ac</PropertyPath>
+                                <PropertyPath>Mark_for_archiving_ac</PropertyPath>
+                                <PropertyPath>Preparation_ac</PropertyPath>
+                                <PropertyPath>Undo_mark_for_archiving_ac</PropertyPath>
+                                <PropertyPath>Validation_ac</PropertyPath>
+                                <PropertyPath>AcademicSecondTitle_fc</PropertyPath>
+                                <PropertyPath>AcademicTitle_fc</PropertyPath>
+                                <PropertyPath>AdditionalLastName_fc</PropertyPath>
+                                <PropertyPath>BirthName_fc</PropertyPath>
+                                <PropertyPath>Building_fc</PropertyPath>
+                                <PropertyPath>BusinessPartner_fc</PropertyPath>
+                                <PropertyPath>CorrespondenceLanguage_fc</PropertyPath>
+                                <PropertyPath>Department_fc</PropertyPath>
+                                <PropertyPath>DestinationLocationCountry_fc</PropertyPath>
+                                <PropertyPath>EmailAddress_fc</PropertyPath>
+                                <PropertyPath>EmployeeExternalID_fc</PropertyPath>
+                                <PropertyPath>FirstName_fc</PropertyPath>
+                                <PropertyPath>FormOfAddress_fc</PropertyPath>
+                                <PropertyPath>FunctionalTitleName_fc</PropertyPath>
+                                <PropertyPath>Initials_fc</PropertyPath>
+                                <PropertyPath>IsMarkedForArchiving_fc</PropertyPath>
+                                <PropertyPath>LastName_fc</PropertyPath>
+                                <PropertyPath>LastNamePrefix_fc</PropertyPath>
+                                <PropertyPath>LastNameSecondPrefix_fc</PropertyPath>
+                                <PropertyPath>MblPhoneDestinationLocCountry_fc</PropertyPath>
+                                <PropertyPath>MiddleName_fc</PropertyPath>
+                                <PropertyPath>MobilePhoneNumber_fc</PropertyPath>
+                                <PropertyPath>NameSupplement_fc</PropertyPath>
+                                <PropertyPath>NickName_fc</PropertyPath>
+                                <PropertyPath>PersonFullName_fc</PropertyPath>
+                                <PropertyPath>PhoneNumber_fc</PropertyPath>
+                                <PropertyPath>PhoneNumberExtension_fc</PropertyPath>
+                                <PropertyPath>RoomNumber_fc</PropertyPath>
+                                <PropertyPath>UserID_fc</PropertyPath>
+                                <PropertyPath>ValidityEndDate_fc</PropertyPath>
+                                <PropertyPath>ValidityStartDate_fc</PropertyPath>
+                                <PropertyPath>Delete_mc</PropertyPath>
+                                <PropertyPath>Update_mc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="IsMarkedForArchiving"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>Activation_ac</PropertyPath>
+                                <PropertyPath>Edit_ac</PropertyPath>
+                                <PropertyPath>Mark_for_archiving_ac</PropertyPath>
+                                <PropertyPath>Preparation_ac</PropertyPath>
+                                <PropertyPath>Undo_mark_for_archiving_ac</PropertyPath>
+                                <PropertyPath>Validation_ac</PropertyPath>
+                                <PropertyPath>AcademicSecondTitle_fc</PropertyPath>
+                                <PropertyPath>AcademicTitle_fc</PropertyPath>
+                                <PropertyPath>AdditionalLastName_fc</PropertyPath>
+                                <PropertyPath>BirthName_fc</PropertyPath>
+                                <PropertyPath>Building_fc</PropertyPath>
+                                <PropertyPath>BusinessPartner_fc</PropertyPath>
+                                <PropertyPath>CorrespondenceLanguage_fc</PropertyPath>
+                                <PropertyPath>Department_fc</PropertyPath>
+                                <PropertyPath>DestinationLocationCountry_fc</PropertyPath>
+                                <PropertyPath>EmailAddress_fc</PropertyPath>
+                                <PropertyPath>EmployeeExternalID_fc</PropertyPath>
+                                <PropertyPath>FirstName_fc</PropertyPath>
+                                <PropertyPath>FormOfAddress_fc</PropertyPath>
+                                <PropertyPath>FunctionalTitleName_fc</PropertyPath>
+                                <PropertyPath>Initials_fc</PropertyPath>
+                                <PropertyPath>IsMarkedForArchiving_fc</PropertyPath>
+                                <PropertyPath>LastName_fc</PropertyPath>
+                                <PropertyPath>LastNamePrefix_fc</PropertyPath>
+                                <PropertyPath>LastNameSecondPrefix_fc</PropertyPath>
+                                <PropertyPath>MblPhoneDestinationLocCountry_fc</PropertyPath>
+                                <PropertyPath>MiddleName_fc</PropertyPath>
+                                <PropertyPath>MobilePhoneNumber_fc</PropertyPath>
+                                <PropertyPath>NameSupplement_fc</PropertyPath>
+                                <PropertyPath>NickName_fc</PropertyPath>
+                                <PropertyPath>PersonFullName_fc</PropertyPath>
+                                <PropertyPath>PhoneNumber_fc</PropertyPath>
+                                <PropertyPath>PhoneNumberExtension_fc</PropertyPath>
+                                <PropertyPath>RoomNumber_fc</PropertyPath>
+                                <PropertyPath>UserID_fc</PropertyPath>
+                                <PropertyPath>ValidityEndDate_fc</PropertyPath>
+                                <PropertyPath>ValidityStartDate_fc</PropertyPath>
+                                <PropertyPath>Delete_mc</PropertyPath>
+                                <PropertyPath>Update_mc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/FormOfAddress" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Value Help view for Form of Address"/>
+                        <PropertyValue Property="CollectionPath" String="C_BPUSRFormOfAddressVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FormOfAddress"/>
+                                    <PropertyValue Property="ValueListProperty" String="FormOfAddress"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FormOfAddressName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/UserID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Business User-Value Help User Assignment"/>
+                        <PropertyValue Property="CollectionPath" String="C_BPUsrAssignmentVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="UserID"/>
+                                    <PropertyValue Property="ValueListProperty" String="UserID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Firstname"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Lastname"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Building"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RoomNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Department"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DefaultEmailAddress"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UserDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/CorrespondenceLanguage" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Language"/>
+                        <PropertyValue Property="CollectionPath" String="I_Language"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CorrespondenceLanguage"/>
+                                    <PropertyValue Property="ValueListProperty" String="Language"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Language_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="LanguageISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/DestinationLocationCountry" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="I_CountryVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DestinationLocationCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/MblPhoneDestinationLocCountry" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="I_CountryVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MblPhoneDestinationLocCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastNamePrefix" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Basic View to show Business Partner Name Prefix"/>
+                        <PropertyValue Property="CollectionPath" String="I_BusPartPrefixName"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="LastNamePrefix"/>
+                                    <PropertyValue Property="ValueListProperty" String="LastNamePrefix"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="LastNamePrefixName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/LastNameSecondPrefix" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Basic View to show Business Partner Name Prefix"/>
+                        <PropertyValue Property="CollectionPath" String="I_BusPartPrefixName"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="LastNameSecondPrefix"/>
+                                    <PropertyValue Property="ValueListProperty" String="LastNamePrefix"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="LastNamePrefixName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AcademicTitle" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Business User - Value help for Academic Title"/>
+                        <PropertyValue Property="CollectionPath" String="C_BPUsrAcademicTitleVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AcademicTitle"/>
+                                    <PropertyValue Property="ValueListProperty" String="AcademicTitle"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AcademicTitleName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/AcademicSecondTitle" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Business User - Value help for Academic Title"/>
+                        <PropertyValue Property="CollectionPath" String="C_BPUsrAcademicTitleVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AcademicSecondTitle"/>
+                                    <PropertyValue Property="ValueListProperty" String="AcademicTitle"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AcademicTitleName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType/NameSupplement" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="View shows the Business Partner Supplement"/>
+                        <PropertyValue Property="CollectionPath" String="I_BusPartSupplementName"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="NameSupplement"/>
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerSupplementName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerSupplementName_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.APS_BUM_EMPLOYEE_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="APS_BUM_EMPLOYEE_SRV.C_EmployeeBusinessUserTPType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>BusinessPartner</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://sap17.bdo.ru/sap/opu/odata/sap/APS_BUM_EMPLOYEE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://sap17.bdo.ru/sap/opu/odata/sap/APS_BUM_EMPLOYEE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
